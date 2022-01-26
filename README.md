@@ -7,6 +7,18 @@ git clone https://github.com/MacShi/SockdContainer.git
 
 cd SockdContainer
 
+vi sockd.conf
+#sockd有ip白名单限制，需要编辑sockd.conf，将1.1.1.更改为socket5客户端的IP地址，然后保存退出。
+#client pass {
+#    from: 1.1.1.1/32  to: 0/0 
+#}
+#     |
+#     |
+#     V
+#client pass {
+#    from: 2.2.2.2/32  to: 0/0 
+#}
+
 docker-compose up -d
 ```
 
