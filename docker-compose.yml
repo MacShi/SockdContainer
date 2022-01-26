@@ -1,0 +1,20 @@
+version: '3'
+services:
+  sockd:
+    build: .
+    container_name: sockd
+    ports:
+      - "31289:31288"
+    networks:
+      my_net:
+        #容器创建好，给容器分配的静态IP地址
+        ipv4_address: 172.16.0.222
+  
+networks:
+  #容器生成时，网络信息
+  my_net:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.16.0.0/16
+        gateway: 172.16.0.1
